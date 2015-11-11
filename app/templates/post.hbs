@@ -1,0 +1,15 @@
+<div>
+  <label>Author</label>
+  {{input type="text" value=blog.author}}
+</div>
+<div>
+  <label>Title</label>
+  {{input type="text" value=blog.title}}
+</div>
+<div>
+  <label>Blog</label>
+  {{textarea type="text" value=blog.body }}
+</div>
+<div>
+  <button {{action "select" doPost}}>Post</button>
+</div>
