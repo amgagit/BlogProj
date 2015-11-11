@@ -9,9 +9,12 @@ export default Ember.Controller.extend({
     body: 'ember details... '
   }],
 
+  detail: false,
+
   actions: {
     doRead() {
       // reads particular blog
+      this.toggleProperty(detail);
     }
   }
 });
