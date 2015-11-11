@@ -7,8 +7,25 @@
     <ul>
       {{#each blog.children as |child|}}
       <li> {{child.title}}</li>
+      {{#if child.children}}
+      <ul>
+        {{#each child.children as |subChild|}}
+          <li>{{subChild.title}}</li>
+          {{/each}}
+        </ul>
+        {{/if}}
       {{/each}}
       </ul>
     {{/if}}
     {{/each}}
-</ul>
+  </ul>
+
+  <ul>
+    {{#each blogs as |blog|}}
+    <li {{action "doRead" }}>{{blog.title}} 
+      {{#if detail}}
+      <p>{{blog.body}}</p>
+      {{/if}}
+    </li>
+    {{/each}}
+  </ul>

@@ -3,10 +3,11 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
   // blogs is array of blog {author, title, body}
-  blogs : [{
+  blogs: [{
     author: 'author1',
     title: 'ember',
     body: 'ember details... '
+
   }],
 
   detail: false,
@@ -14,7 +15,7 @@ export default Ember.Controller.extend({
   actions: {
     doRead() {
       // reads particular blog
-      this.toggleProperty(detail);
+      this.toggleProperty('detail');
     }
   }
 });
