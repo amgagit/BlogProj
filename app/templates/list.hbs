@@ -1,9 +1,14 @@
 <h3>Blogs</h3>
 
 <ul>
-  {{#each blogs as |blog|}}
-    <li>{{blog.author}} {{blog.title}}
-      {{#link-to blog-list }}read{{/link-to}}
-    </li>
+  {{#each model.tree as |blog|}}
+    <li> {{blog.title}} </li>
+    {{#if blog.children }}   
+    <ul>
+      {{#each blog.children as |child|}}
+      <li> {{child.title}}</li>
+      {{/each}}
+      </ul>
+    {{/if}}
     {{/each}}
 </ul>
