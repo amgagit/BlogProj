@@ -22,8 +22,8 @@
 
   <ul>
     {{#each blogs as |blog|}}
-    <li {{action "doRead" }}>{{blog.title}} 
-      {{#if detail}}
+    <li {{action "doRead" blog}}>{{blog.title}} 
+      {{#if blog.detail}}
       <p>{{blog.body}}</p>
       {{/if}}
     </li>

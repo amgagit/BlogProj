@@ -3,19 +3,43 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
   // blogs is array of blog {author, title, body}
-  blogs: [{
-    author: 'author1',
-    title: 'ember',
-    body: 'ember details... '
+  blogs: [
+    Ember.Object.create({
+      author: 'author1',
+      title: 'ember',
+      body: 'ember details... ',
+      detail: false,
 
-  }],
+      togglePropertyDetail() {
+        if (this.get('detail')) {
+          this.set('detail', false);
+        } else {
+          this.set('detail', true);
+        }
+      }
+    }),
 
-  detail: false,
+    Ember.Object.create({
+      author: 'author2',
+      title: 'ember-cli',
+      body: 'ember-cli details...',
+      detail: false,
+
+      togglePropertyDetail() {
+        if (this.get('detail')) {
+          this.set('detail', false);
+        } else {
+          this.set('detail', true);
+        }
+      }
+    })
+  ],
 
   actions: {
-    doRead() {
+    doRead(val) {
       // reads particular blog
-      this.toggleProperty('detail');
+    //  console.log(val);
+      val.togglePropertyDetail();
     }
   }
 });
