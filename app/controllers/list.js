@@ -47,7 +47,17 @@ export default Ember.Controller.extend({
     return ` ${this.get('postTitle')} ${this.get('postBody')} `;
   }),
 
-  postAuthor: Ember.computed.oneWay('postTitle'),
+
+  // postAuthor: Ember.computed.oneWay('postTitle'),
+
+  // anyFunction: function(){
+  //   this.set('postAuthor', this.get('postTitle'));
+  // }.observes('postTitle'),
+
+  postAuthor: function(){
+
+    return this.get('postTitle');
+  }.property('postTitle'),
 
   showList: Ember.A(),
 
@@ -64,8 +74,25 @@ export default Ember.Controller.extend({
         body: this.get('postBody')
       });
       console.log(rec.get('title') + ' | ' + rec.get('body'));
-    }
+    },
 
+    queryPart() {
+      this.store.queryRecord('post', {filter :
+                   {title: 'third title' }}).then(function(rec) {
+        console.log(rec);
+      });
+    },
+
+    updatePost() {
+      let rec = this.store.peekAll('post');
+      console.log(rec.objectAt(0).get('body'));
+      rec.objectAt(0).set('body', this.get('postBody'));
+
+      let chAt = rec.objectAt(0).changedAttributes();
+      console.log(chAt.body);
+    }
   }
+
+
 
 });

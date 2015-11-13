@@ -39,4 +39,7 @@
   {{/each}}
   
   <p>{{postTitleBody}}</p>
-  {{input type="text" value=postAuthor}}
+  {{input type="texk" value=postAuthor}}
+
+  <button {{action "queryPart"}}>query</button>
+  <button {{action "updatePost"}}>update</button>
