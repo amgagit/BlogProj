@@ -34,5 +34,9 @@
   {{input type="text" value=postBody}}
   <button {{action "doPost"}}>Do Post</button>
 
-  <button {{action "listParticularPost"}}>List Post</button>
-  <p>{{showList}}</p>
+  {{#each showList as |model|}}
+    <p>{{model.title}} | {{model.body}}</p>
+  {{/each}}
+  
+  <p>{{postTitleBody}}</p>
+  {{input type="text" value=postAuthor}}
