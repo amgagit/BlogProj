@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import DS from 'ember-data';
 
 var Blog =  Ember.Controller.extend({
   blog : {
@@ -9,7 +10,18 @@ var Blog =  Ember.Controller.extend({
 
   actions: {
     doPost() {
-      // post to db
+      let rec = this.store.createRecord('post', {
+        title: 'Rails is Omakase',
+        body: 'Lorem ipsum'
+      });
+      //rec.save();
+
+      console.log('created a post');
+      console.log(rec);
+
+     /* this.store.findRecord('user', 1).then(function(user) {
+        post.set('author', user);
+      });*/
     }
   }
 });

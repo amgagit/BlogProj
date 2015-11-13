@@ -29,3 +29,10 @@
     </li>
     {{/each}}
   </ul>
+
+  {{input type="text" value=postTitle}}
+  {{input type="text" value=postBody}}
+  <button {{action "doPost"}}>Do Post</button>
+
+  <button {{action "listParticularPost"}}>List Post</button>
+  <p>{{showList}}</p>
